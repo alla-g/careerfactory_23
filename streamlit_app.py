@@ -20,7 +20,7 @@ with tab1:
     st.write("Уровень значимости: 0.05")
     st.write("Мощность: 0.8")
 
-    size = st.slider("Размер каждой группы в выборке:", min_value=2, max_value=30000, value=100, key='s1')
+    size = st.slider("Размер каждой группы в выборке:", min_value=10, max_value=30000, value=100, key='s1')
     mde = power_analysis.solve_power(nobs1=size, alpha=alpha1, power=power1,
                                      ratio=1, alternative='two-sided')
 
@@ -36,7 +36,7 @@ with tab2:
     st.write("Уровень значимости: 0.05")
     st.write("Мощность: 0.8")
 
-    uplift2 = st.slider("Минимальная абсолютная разница в процентах (± n%):", min_value=1.0, max_value=100.0,
+    uplift2 = st.slider("Минимальная абсолютная разница в процентах (± n%):", min_value=0.1, max_value=100.0,
                         value=5.0, key='u2')
     mde2 = proportion_effectsize(0.1531, 0.1531 + uplift2 / 100)
     st.write("MDE составит:", abs(mde2))
